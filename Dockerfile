@@ -1,6 +1,6 @@
-# Version: 0.0.1 - Certified Asterisk 13.1-cert2 with sip and pjsip channels
+# Version: 0.0.1 - Certified Asterisk 13.18-cert3
 FROM centos:latest
-MAINTAINER Gonzalo Marcote "gonzalomarcote@gmail.com"
+MAINTAINER Antonio Alisio "alisio.meneses@gmail.com"
 RUN yum -y update
 RUN yum -y install vim tar htop
 RUN yum -y install gcc gcc-c++ make wget subversion libxml2-devel ncurses-devel openssl-devel sqlite-devel libuuid-devel vim-enhanced jansson-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel subversion speex-devel mysql-devel
@@ -14,11 +14,11 @@ RUN make install
 RUN ldconfig
 RUN ldconfig -p | grep pj
 WORKDIR /usr/src
-RUN wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/certified-asterisk-13.1-current.tar.gz
-RUN tar -zxvf certified-asterisk-13.1-current.tar.gz
-WORKDIR /usr/src/certified-asterisk-13.1-cert2
+RUN wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.18-cert3.tar.gz
+RUN tar -zxvf asterisk-certified-13.18-cert3.tar.gz
+WORKDIR /usr/src/asterisk-certified-13.18-cert3
 RUN sh contrib/scripts/get_mp3_source.sh
-COPY menuselect.makeopts /usr/src/certified-asterisk-13.1-cert2/menuselect.makeopts
+COPY menuselect.makeopts /usr/src/asterisk-certified-13.18-cert3/menuselect.makeopts
 RUN ./configure CFLAGS='-g -O2 -mtune=native' --libdir=/usr/lib64
 RUN make
 RUN make install
