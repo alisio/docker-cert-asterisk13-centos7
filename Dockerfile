@@ -2,8 +2,9 @@
 FROM centos:latest
 MAINTAINER Antonio Alisio "alisio.meneses@gmail.com"
 RUN yum -y update
-RUN yum -y install vim tar htop
-RUN yum -y install gcc gcc-c++ make wget subversion libxml2-devel ncurses-devel openssl-devel sqlite-devel libuuid-devel vim-enhanced jansson-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel subversion speex-devel mysql-devel
+RUN yum -y install vim tar htop epel-release
+#RUN yum -y install gcc gcc-c++ make wget subversion libxml2-devel ncurses-devel openssl-devel sqlite-devel libuuid-devel vim-enhanced jansson-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel subversion speex-devel mysql-devel
+RUN yum -y install automake gcc gcc-c++ git patch ncurses-devel openssl-devel libxml2-devel unixODBC-devel libcurl-devel libogg-devel libvorbis-devel speex-devel spandsp-devel freetds-devel net-snmp-devel iksemel-devel corosynclib-devel newt-devel popt-devel libtool-ltdl-devel lua-devel sqlite-devel libsqlite3x-devel radiusclient-ng-devel portaudio-devel postgresql-devel libresample-devel neon-devel libical-devel openldap-devel gmime-devel sqlite2-devel mysql-devel bluez-libs-devel jack-audio-connection-kit-devel gsm-devel libedit-devel libuuid-devel jansson-devel subversion git libxslt-devel python-devel wget vim
 WORKDIR /usr/src
 RUN svn co http://svn.pjsip.org/repos/pjproject/trunk/ pjproject-trunk
 WORKDIR /usr/src/pjproject-trunk
