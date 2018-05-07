@@ -1,4 +1,4 @@
-# Version: 0.0.1 - Certified Asterisk 13.18-cert3
+# Version: 0.0.1 - Certified Asterisk 13.18-cert3, based on the Dockerfile by Gonzalo Marcote "gonzalomarcote@gmail.com"
 FROM centos:latest
 MAINTAINER Antonio Alisio "alisio.meneses@gmail.com"
 RUN yum -y update
